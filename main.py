@@ -1,8 +1,16 @@
+import os
 import communication
+from pathlib import Path
 
-def print_hi(name):
+def readresults(name):
 
-    print(f'Hi, {name}, {communication.results}')
+    print(f'Hi, {name}')
+    home = str(Path.home())
+    logfile = open(home + '/archivio/triride/logfile.txt', 'w+')
+
+    logfile.write(communication.results)
+
+    logfile.close()
 
 if __name__ == '__main__':
-    print_hi('PyCharm')
+    readresults('PyCharm')
